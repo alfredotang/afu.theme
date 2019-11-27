@@ -1,0 +1,96 @@
+module.exports = {
+    parser: '@typescript-eslint/parser',
+    extends: [
+        'airbnb',
+        'airbnb/hooks',
+        'prettier/@typescript-eslint',
+        'prettier-react',
+        'plugin:prettier/recommended',
+        'plugin:import/errors',
+        'plugin:import/warnings',
+        'plugin:node/recommended',
+        'plugin:jest/recommended',
+    ],
+    env: {
+        node: true,
+        browser: true,
+        es6: true,
+        commonjs: true,
+        jest: true,
+    },
+    plugins: ['promise', 'import', 'jest'],
+    parserOptions: {
+        ecmaVersion: 8,
+        sourceType: 'module',
+        ecmaFeatures: {
+            jsx: true,
+        },
+    },
+    rules: {
+        'no-unused-vars': 'off',
+        'explicit-function-return-type': 0,
+        'class-methods-use-this': 0,
+        'global-require': [0],
+        'comma-dangle': 0,
+        'prefer-destructuring': 0,
+        'promise/always-return': 'error',
+        'promise/param-names': 'error',
+        'promise/catch-or-return': 'error',
+        'promise/no-native': 'off',
+        'promise/no-nesting': 'off',
+        'promise/no-callback-in-promise': [
+            'error',
+            {
+                exceptions: ['next'],
+            },
+        ],
+        'promise/no-new-statics': 'error',
+        'promise/no-return-in-finally': 'warn',
+        'import/no-unresolved': [
+            2,
+            {
+                commonjs: true,
+                amd: true,
+            },
+        ],
+        'import/namespace': 2,
+        'import/default': 2,
+        'import/export': 2,
+        'node/exports-style': ['error', 'module.exports'],
+        'node/prefer-global/buffer': ['error', 'always'],
+        'node/prefer-global/console': ['error', 'always'],
+        'node/prefer-global/process': ['error', 'always'],
+        'node/prefer-global/url-search-params': ['error', 'always'],
+        'node/prefer-global/url': ['error', 'always'],
+        'node/no-unsupported-features/es-syntax': [0],
+        'node/no-missing-import': 'off',
+        "node/no-unpublished-import": 'off',
+        "node/no-unpublished-require": 'off',
+        'react/jsx-uses-react': 'error',
+        'react/jsx-uses-vars': 'error',
+        'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
+        'react/static-property-placement': 'off',
+        'react/jsx-fragments': [2, 'element'],
+        'react/prop-types': [2, { skipUndeclared: true }],
+        'import/no-extraneous-dependencies': [0],
+        'import/named': [0],
+        'jsx-a11y/click-events-have-key-events': [0],
+        'jsx-a11y/no-static-element-interactions': [0],
+        // rules for https://github.com/prettier/eslint-plugin-prettier
+        'prettier/prettier': [
+            'error',
+            {
+                ...require('./prettier.config'),
+            },
+        ],
+    },
+    settings: {
+        'import/parsers': {
+            '@typescript-eslint/parser': ['.ts', '.tsx'],
+        },
+        'import/resolver': {
+            // use <root>/tsconfig.json
+            typescript: {},
+        },
+    },
+};

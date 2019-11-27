@@ -1,0 +1,12 @@
+{
+	"rootDir": "../",
+	"moduleFileExtensions": ["js", "jsx", "json", "ts", "tsx"],
+	"transform": {
+		"^.+\\.(ts|tsx)$": "ts-jest"
+	},
+	"testMatch": ["**/?(*.)spec.(ts|tsx)"],
+	"coveragePathIgnorePatterns": ["<rootDir>/node_modules/", "<rootDir>/test"],
+	"moduleNameMapper": {
+		"@utils(.*)$": "<rootDir>/src/client/utils/$1"
+	}
+}

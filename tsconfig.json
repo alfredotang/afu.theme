@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "declaration": false,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "importHelpers": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "outDir": "./dist/",
+    "jsx": "react",
+    // "resolveMappedPaths": true,
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": [
+        "./src/*"
+      ],
+      "@typings/*": [
+        "./typings/*"
+      ],
+    },
+    // "esModuleInterop": true,
+    "types": [
+      "jest"
+    ],
+    "lib": [
+      "es2016",
+      "es2017",
+      "esnext",
+      "dom"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+  ],
+  "include": [
+    "./src/client/**/*.ts",
+    "./src/client/**/*.tsx",
+    "./src/server/**/*.ts",
+    "./src/server/**/*.tsx",
+    "./test/**/*.ts",
+    "./test/**/*.tsx",
+    "./typings/**/*.ts",
+  ],
+  "typeRoots": "./node_modules/@types",
+}
