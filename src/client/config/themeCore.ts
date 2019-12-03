@@ -1,30 +1,78 @@
-export const colorMixin = {
-    $white: '',
-    $grey: '#e0e0e0',
-};
-export const themeCore = (theme?) => {
+import { IThemeOptions, ThemeMiddleware } from '@typings/client/theme';
+import { colorMixin } from './colorMixin';
+
+export const useThemeCore = (theme?: IThemeOptions): ThemeMiddleware => {
     return {
         palette: {
             background: {
-                default: colorMixin.$grey,
+                default: colorMixin.$whiteDark_Mid,
             },
         },
-        headerNavbar: {
-            backgroundColor: 'red',
-            color: '',
+        layout: {
+            header: {
+                palette: {
+                    backgroundColor: 'red',
+                    color: '',
+                },
+                width: '96px',
+                smWidth: '56px',
+                navbar: {
+                    link: {
+                        backgroundColor: '',
+                        color: '',
+                        activeBackgroundColor: '',
+                        activeColor: '',
+                        hoverColor: '',
+                    },
+                },
+            },
+            sidebar: {
+                palette: {
+                    backgroundColor: 'red',
+                    color: '',
+                },
+                width: '330px',
+                navbar: {
+                    link: {
+                        backgroundColor: '',
+                        color: '',
+                        activeBackgroundColor: '',
+                        activeColor: '',
+                        hoverColor: '',
+                    },
+                },
+            },
+            button: {
+                backgroundColor: '',
+                color: '',
+                hoverColor: '',
+            },
         },
     };
 };
 
-export const themeLight = {
+export const themeLight: IThemeOptions = {
     body: {
-        backgroundColor: '',
+        backgroundColor: colorMixin.$white,
     },
-    core: {
+    color: {
         color: '',
         backgroundColor: '',
+        activeColor: '',
+        activeBackgroundColor: '',
+        hoverColor: '',
     },
 };
-export const themeDark = {};
-export const themeCus = {};
+export const themeDark: IThemeOptions = {
+    body: {
+        backgroundColor: colorMixin.$white,
+    },
+    color: {
+        color: '',
+        backgroundColor: '',
+        activeColor: '',
+        activeBackgroundColor: '',
+        hoverColor: '',
+    },
+};
 export const themeCMS = {};

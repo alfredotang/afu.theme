@@ -2,7 +2,7 @@
 import { Home, DnsRounded, Public, Face, NoteAdd } from '@material-ui/icons';
 import { RouterConfigEntity } from '@typings/client';
 
-import HomeContainer from '@src/client/components/home/home';
+import HomeContainer from '@src/client/pages/home/home';
 
 export const RouterConfig: RouterConfigEntity[] = [
     {
