@@ -1,78 +1,45 @@
-import { IThemeOptions, ThemeMiddleware } from '@typings/client/theme';
-import { colorMixin } from './colorMixin';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
+import color from '@common/styles/color';
+import layout from '@common/styles/layout';
+import breakPoints from '@common/styles/breakPoints';
+import spacing from '@common/styles/spacing';
+import { DefaultTheme, IThemeOption } from 'styled-components';
 
-export const useThemeCore = (theme?: IThemeOptions): ThemeMiddleware => {
-    return {
-        palette: {
-            background: {
-                default: colorMixin.$whiteDark_Mid,
-            },
-        },
-        layout: {
-            header: {
-                palette: {
-                    backgroundColor: 'red',
-                    color: '',
-                },
-                width: '96px',
-                smWidth: '56px',
-                navbar: {
-                    link: {
-                        backgroundColor: '',
-                        color: '',
-                        activeBackgroundColor: '',
-                        activeColor: '',
-                        hoverColor: '',
-                    },
-                },
-            },
-            sidebar: {
-                palette: {
-                    backgroundColor: 'red',
-                    color: '',
-                },
-                width: '330px',
-                navbar: {
-                    link: {
-                        backgroundColor: '',
-                        color: '',
-                        activeBackgroundColor: '',
-                        activeColor: '',
-                        hoverColor: '',
-                    },
-                },
-            },
-            button: {
-                backgroundColor: '',
-                color: '',
-                hoverColor: '',
-            },
-        },
-    };
+const defaultThemeOption: IThemeOption = {
+    bgColor: color.$black[400],
+    color: color.$teal[100],
+    primary: color.$teal[100],
+    secondary: color.$green[100],
 };
 
-export const themeLight: IThemeOptions = {
-    body: {
-        backgroundColor: colorMixin.$white,
-    },
-    color: {
-        color: '',
-        backgroundColor: '',
-        activeColor: '',
-        activeBackgroundColor: '',
-        hoverColor: '',
-    },
+const defaultTheme: DefaultTheme = {
+    breakPoints,
+    spacing,
+    layout,
+    body: defaultThemeOption,
 };
-export const themeDark: IThemeOptions = {
-    body: {
-        backgroundColor: colorMixin.$white,
-    },
-    color: {
-        color: '',
-        backgroundColor: '',
-        activeColor: '',
-        activeBackgroundColor: '',
-        hoverColor: '',
-    },
+
+export const themeLight: IThemeOption = {
+    color: color.$hotPink[100],
+    bgColor: color.$white[100],
+    primary: color.$red[100],
+    secondary: color.$green[100],
+};
+export const themeDark: IThemeOption = {
+    color: color.$white[100],
+    bgColor: color.$black[400],
+    primary: color.$red[100],
+    secondary: color.$green[100],
 };
 export const themeCMS = {};
+
+export const useThemeCore = (): [DefaultTheme, Dispatch<SetStateAction<IThemeOption>>] => {
+    const [themeOption, setThemeOption] = useState<IThemeOption>(defaultThemeOption);
+    const [theme, setTheme] = useState<DefaultTheme>(defaultTheme);
+    useEffect(() => {
+        setTheme({ ...theme, body: themeOption });
+    }, [themeOption]);
+
+    return [theme, setThemeOption];
+};

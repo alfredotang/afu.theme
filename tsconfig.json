@@ -17,6 +17,12 @@
       "@src/*": [
         "./src/*"
       ],
+      "@components/*": [
+        "./src/client/components/*"
+      ],
+      "@common/*": [
+        "./src/client/common/*"
+      ],
       "@typings/*": [
         "./typings/*"
       ],

@@ -1,41 +1,49 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { FC } from 'react';
+import styled from 'styled-components';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
 import AppBar from '@material-ui/core/AppBar';
 
-const useStyles = makeStyles(theme => ({
-    appBar: {
-        boxShadow: 'none',
-        padding: theme.spacing(2),
-        [theme.breakpoints.down('xs')]: {
-            padding: 0,
-        },
-    },
-    menuButton: {
-        marginRight: theme.spacing(2),
-        [theme.breakpoints.up('sm')]: {
-            display: 'none',
-        },
-    },
-}));
+import { colorAddAlpha, colorDarken } from '@common/utils/colorUtils';
 
-interface IHeaderProps {}
-const Header = (props: IHeaderProps): JSX.Element => {
-    const classes = useStyles({});
+const Container = styled(AppBar)`
+    && {
+        background-color: ${props => props.theme.body.bgColor};
+        color: ${props => props.theme.body.color};
+        box-shadow: 0px 1px 3px 0px ${props => colorAddAlpha(props.theme.body.color, 0.01)},
+            0px 1px 1px 0px ${props => colorAddAlpha(props.theme.body.color, 0.1)},
+            0px 2px 1px -1px ${props => colorAddAlpha(props.theme.body.color, 0.05)};
+        padding: ${props => props.theme.spacing(2)};
+        ${props => props.theme.breakPoints.down('sm')} {
+            padding: 0;
+        }
+    }
+`;
+
+const IconWrapper = styled(IconButton)`
+    && {
+        margin-right: ${props => props.theme.spacing(2)};
+        ${props => props.theme.breakPoints.up('sm')} {
+            display: none;
+        }
+    }
+`;
+
+interface IProps {}
+const Header: FC<IProps> = props => {
     return (
-        <AppBar className={classes.appBar}>
+        <Container>
             <Toolbar>
-                <IconButton color="inherit" aria-label="Open drawer" edge="start" className={classes.menuButton}>
+                <IconWrapper color="inherit" aria-label="Open drawer" edge="start">
                     <MenuIcon />
-                </IconButton>
+                </IconWrapper>
                 <Typography variant="h6">afu.theme(icon)</Typography>
                 <nav>nav</nav>
                 <aside>aside</aside>
             </Toolbar>
-        </AppBar>
+        </Container>
     );
 };
 

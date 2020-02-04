@@ -1,7 +1,5 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // CSS 文件單獨提取出來
-const autoprefixer = require('autoprefixer');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const path = require('path');
 const paths = require('./paths');
 
 const DEV = (process.env.NODE_ENV || 'development').trim() === 'development';
@@ -32,27 +30,8 @@ module.exports = {
                 loader: 'babel-loader',
             },
             {
-                test: /\.(scss|css|sass)?$/,
-                use: [
-                    DEV ? 'style-loader' : MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: () => [
-                                autoprefixer({
-                                    Browserslist: [
-                                        'Chrome >= 52',
-                                        'FireFox >= 44',
-                                        'Safari >= 7',
-                                        'Explorer >= 10',
-                                        'last 2 Edge versions',
-                                    ],
-                                }),
-                            ],
-                        },
-                    },
-                ],
+                test: /\.css?$/,
+                use: [DEV ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader'],
                 include: paths.sourceDir,
                 exclude: /node_modules/,
             },
