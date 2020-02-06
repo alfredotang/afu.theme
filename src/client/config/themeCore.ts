@@ -4,6 +4,7 @@ import color from '@common/styles/color';
 import layout from '@common/styles/layout';
 import breakPoints from '@common/styles/breakPoints';
 import spacing from '@common/styles/spacing';
+import zIndex from '@common/styles/zIndex';
 import { DefaultTheme, IThemeOption } from 'styled-components';
 
 const defaultThemeOption: IThemeOption = {
@@ -17,6 +18,7 @@ const defaultTheme: DefaultTheme = {
     breakPoints,
     spacing,
     layout,
+    zIndex,
     body: defaultThemeOption,
 };
 
@@ -32,7 +34,6 @@ export const themeDark: IThemeOption = {
     primary: color.$red[100],
     secondary: color.$green[100],
 };
-export const themeCMS = {};
 
 export const useThemeCore = (): [DefaultTheme, Dispatch<SetStateAction<IThemeOption>>] => {
     const [themeOption, setThemeOption] = useState<IThemeOption>(defaultThemeOption);

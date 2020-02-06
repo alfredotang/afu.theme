@@ -2,6 +2,7 @@ import 'styled-components';
 import { BreakPoints as IBreakPoints } from '@common/styles/breakPoints';
 import { ISpacing } from '@common/styles/spacing';
 import { ILayoutOption } from '@common/styles/layout';
+import { IZIndex } from '@common/styles/zIndex';
 
 declare module 'styled-components' {
     export interface IThemeOption {
@@ -14,6 +15,7 @@ declare module 'styled-components' {
         breakPoints: IBreakPoints;
         spacing: ISpacing;
         layout: ILayoutOption;
+        zIndex: IZIndex;
         body: IThemeOption;
     }
 }

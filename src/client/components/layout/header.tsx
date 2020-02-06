@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
 import AppBar from '@material-ui/core/AppBar';
 
-import { colorAddAlpha, colorDarken } from '@common/utils/colorUtils';
+import { colorAddAlpha } from '@common/utils/colorUtils';
 
 const Container = styled(AppBar)`
     && {

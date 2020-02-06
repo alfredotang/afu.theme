@@ -1,5 +1,5 @@
 import MuiButton from '@material-ui/core/Button';
-import styled, { css } from 'styled-components';
+import styled, { css, DefaultTheme } from 'styled-components';
 import { colorLighten, colorAddAlpha } from '@common/utils/colorUtils';
 import color from '@common/styles/color';
 
@@ -51,10 +51,17 @@ const buttonVariant = (variant: Variant, bgColor: string, textColor: string) => 
     }
 };
 
-const Button = styled(MuiButton)<{ variant?: Variant; bgColor?: string; textColor?: string }>`
+interface IButtonProps {
+    readonly theme: DefaultTheme;
+    variant?: Variant;
+    bgColor?: string;
+    textColor?: string;
+}
+
+const Button = styled(MuiButton)`
     && {
         transition: 0.1s;
-        ${props =>
+        ${(props: IButtonProps) =>
             buttonVariant(
                 props.variant,
                 props.bgColor || props.theme.body.primary,
