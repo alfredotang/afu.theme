@@ -8,6 +8,7 @@ declare module 'styled-components' {
     export interface IThemeOption {
         bgColor: string;
         color: string;
+        linkColor: string;
         primary: string;
         secondary: string;
     }

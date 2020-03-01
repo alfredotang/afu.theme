@@ -1,7 +1,7 @@
 const appRootPath = require('app-root-path');
 
 module.exports = {
-    clientEntry: appRootPath.resolve('src/client/app.tsx'),
+    clientEntry: appRootPath.resolve('src/client/index.tsx'),
     serverEntry: appRootPath.resolve('src/server/index.ts'),
     sourceDir: appRootPath.resolve('src'),
     distDir: appRootPath.resolve('dist'),

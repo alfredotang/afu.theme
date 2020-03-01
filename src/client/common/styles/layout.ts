@@ -1,5 +1,3 @@
-import { stringToNumberFormat } from '@common/utils/styleUtils';
-
 export interface ILayoutOption {
     header: {
         width: string;

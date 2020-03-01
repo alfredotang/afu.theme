@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import MenuIcon from '@material-ui/icons/Menu';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import Toolbar from '@material-ui/core/Toolbar';
 import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
 
+import { IRouterConfig } from '@src/client/app/router';
 import { colorAddAlpha } from '@common/utils/colorUtils';
+
+import Navbar from '@components/header/navbar';
 
 const Container = styled(AppBar)`
     && {
@@ -22,13 +23,9 @@ const Container = styled(AppBar)`
     }
 `;
 
-const IconWrapper = styled(IconButton)`
-    && {
-        margin-right: ${props => props.theme.spacing(2)};
-        ${props => props.theme.breakPoints.up('sm')} {
-            display: none;
-        }
-    }
+const ParagraphContainer = styled.div`
+    flex: 1;
+    min-width: ${props => props.theme.breakPoints.breakpointValues.sm / 3}px;
 `;
 
 interface IProps {}
@@ -36,12 +33,10 @@ const Header: FC<IProps> = props => {
     return (
         <Container>
             <Toolbar>
-                <IconWrapper color="inherit" aria-label="Open drawer" edge="start">
-                    <MenuIcon />
-                </IconWrapper>
-                <Typography variant="h6">afu.theme(icon)</Typography>
-                <nav>nav</nav>
-                <aside>aside</aside>
+                <ParagraphContainer>
+                    <Typography variant="h6">afu.theme(icon)</Typography>
+                </ParagraphContainer>
+                <Navbar />
             </Toolbar>
         </Container>
     );

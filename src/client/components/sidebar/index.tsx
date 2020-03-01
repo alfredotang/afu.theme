@@ -2,9 +2,11 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import { colorAddAlpha, colorDarken } from '@src/client/common/utils/colorUtils';
 
-interface IProps {}
+interface IProps {
+    children: React.ReactNode;
+}
 
-const Container = styled.nav`
+const Container = styled.aside`
     width: ${props => props.theme.layout.sidebar.width};
     position: fixed;
     z-index: ${props => props.theme.zIndex.navBar};
@@ -52,11 +54,10 @@ const Content = styled.div`
 `;
 
 const Sidebar: FC<IProps> = props => {
+    const { children } = props;
     return (
         <Container>
-            <Content>
-                <div style={{ height: 1000 }}>sidebar</div>
-            </Content>
+            <Content>{children}</Content>
         </Container>
     );
 };

@@ -1,15 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
+import { DefaultTheme, IThemeOption } from 'styled-components';
+
 import color from '@common/styles/color';
 import layout from '@common/styles/layout';
 import breakPoints from '@common/styles/breakPoints';
 import spacing from '@common/styles/spacing';
 import zIndex from '@common/styles/zIndex';
-import { DefaultTheme, IThemeOption } from 'styled-components';
 
 const defaultThemeOption: IThemeOption = {
     bgColor: color.$black[400],
     color: color.$teal[100],
+    linkColor: color.$yellow[100],
     primary: color.$teal[100],
     secondary: color.$green[100],
 };
@@ -25,12 +27,14 @@ const defaultTheme: DefaultTheme = {
 export const themeLight: IThemeOption = {
     color: color.$hotPink[100],
     bgColor: color.$white[100],
+    linkColor: 'inherit',
     primary: color.$red[100],
     secondary: color.$green[100],
 };
 export const themeDark: IThemeOption = {
     color: color.$white[100],
     bgColor: color.$black[400],
+    linkColor: color.$white[100],
     primary: color.$red[100],
     secondary: color.$green[100],
 };

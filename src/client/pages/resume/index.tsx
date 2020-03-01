@@ -2,15 +2,15 @@ import React, { FC, Fragment } from 'react';
 import Layout from '@components/layout';
 import Sidebar from '@components/sidebar';
 
-const Home: FC = () => {
+const Resume: FC = () => {
     return (
         <Fragment>
             <Sidebar>
-                <div>home</div>
+                <div>Resume</div>
             </Sidebar>
-            <Layout>Home</Layout>
+            <Layout>Resume</Layout>
         </Fragment>
     );
 };
 
-export default Home;
+export default Resume;
