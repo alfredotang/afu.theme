@@ -53,20 +53,16 @@ const buttonVariant = (variant: Variant, bgColor: string, textColor: string) => 
 
 interface IButtonProps {
     readonly theme: DefaultTheme;
-    variant?: Variant;
-    bgColor?: string;
-    textColor?: string;
+    variant: Variant;
 }
 
 const Button = styled(MuiButton)`
     && {
         transition: 0.1s;
-        ${(props: IButtonProps) =>
-            buttonVariant(
-                props.variant,
-                props.bgColor || props.theme.body.primary,
-                props.textColor || color.$white[100]
-            )};
+        ${(props: IButtonProps) => {
+            const { variant, theme } = props;
+            return buttonVariant(variant, theme.body.primary, color.$white[100]);
+        }};
     }
 `;
 
