@@ -2,7 +2,7 @@
 const environment = (process.env.NODE_ENV || 'development').trim();
 
 if (environment === 'development') {
-    module.exports = require('./config/webpack.dev.config');
+    module.exports = require('./scripts/webpack.dev.config');
 } else {
-    module.exports = require('./config/webpack.prod.config');
+    module.exports = require('./scripts/webpack.prod.config');
 }
