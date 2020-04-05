@@ -7,8 +7,9 @@ import { Link } from 'react-router-dom';
 import Button from '@components/button';
 import { RouterConfig, IRouterConfig } from '@src/client/app/router';
 
-const Container = styled.nav`
+const Container = styled.nav<{ theme: DefaultTheme }>`
     flex: 2 2;
+    padding-right: ${props => props.theme.spacing(1)};
 `;
 
 const LinkContainer = styled.div<{ theme: DefaultTheme }>`

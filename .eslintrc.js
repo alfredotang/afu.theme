@@ -46,6 +46,8 @@ module.exports = {
         'react/jsx-uses-react': 'error',
         'react/jsx-uses-vars': 'error',
         'react/jsx-fragments': [2, 'element'],
+        'react/jsx-indent-props': 'off',
+        'react/jsx-closing-bracket-location': 'off',
         'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
         'jsx-a11y/click-events-have-key-events': [0],
         'jsx-a11y/no-static-element-interactions': [0],
