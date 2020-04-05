@@ -1,6 +1,7 @@
 import React, { FC, Fragment } from 'react';
 import Layout from '@components/layout';
 import Sidebar from '@components/sidebar';
+import Button from '@components/button';
 
 const Home: FC = () => {
     return (
@@ -8,7 +9,9 @@ const Home: FC = () => {
             <Sidebar>
                 <div>home</div>
             </Sidebar>
-            <Layout>Home</Layout>
+            <Layout>
+                <Button>hello</Button>
+            </Layout>
         </Fragment>
     );
 };

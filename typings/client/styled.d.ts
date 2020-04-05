@@ -1,10 +1,10 @@
-import 'styled-components';
+import 'emotion-theming';
 import { BreakPoints as IBreakPoints } from '@common/styles/breakPoints';
 import { ISpacing } from '@common/styles/spacing';
 import { ILayoutOption } from '@common/styles/layout';
 import { IZIndex } from '@common/styles/zIndex';
 
-declare module 'styled-components' {
+declare module 'emotion-theming' {
     export interface IThemeOption {
         bgColor: string;
         color: string;

@@ -42,11 +42,18 @@ module.exports = {
                     {
                         loader: 'url-loader',
                         options: {
-                            limit: 1000, // 10KB 以下使用 base64,
-                            // name: 'images/[name].[ext]',
+                            limit: 40000,
                         },
                     },
                 ],
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
+                loader: 'image-webpack-loader',
+                exclude: /node_modules/,
+                options: {
+                    bypassOnDebug: true,
+                },
             },
         ],
     },

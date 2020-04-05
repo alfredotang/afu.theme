@@ -18,20 +18,20 @@ const cleintWebpackConfig = merge(baseWebpackConfig, {
         filename: 'js/[name].min.js',
     },
     plugins: [
-        new CopyWebpackPlugin([
-            {
-                from: path.join(__dirname, '../src', 'client', 'assets'),
-                to: path.join(__dirname, '..', 'dist', 'public', 'assets'),
-                ignore: ['.*'],
-            },
-        ]),
+        // new CopyWebpackPlugin([
+        //     {
+        //         from: path.join(__dirname, '../src', 'client', 'assets'),
+        //         to: path.join(__dirname, '..', 'dist', 'public', 'assets'),
+        //         ignore: ['.*'],
+        //     },
+        // ]),
         new MiniCssExtractPlugin({
             filename: 'styles/[name].min.css',
             allChunks: true,
         }),
         new HtmlWebpackPlugin({
             template: paths.templateDir,
-            filename: 'template.html',
+            filename: 'index.html',
             hash: true,
             minify: {
                 removeAttributeQuotes: true, // 去除引號

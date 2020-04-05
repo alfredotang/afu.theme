@@ -11,5 +11,5 @@ module.exports = {
     baseDir: appRootPath.resolve('.'),
     templateDir: appRootPath.resolve('src/client/index.html'),
     devTemplateDir: appRootPath.resolve('public/index.html'),
-    prodTemplateDir: appRootPath.resolve('dist/public/template.html'),
+    prodTemplateDir: appRootPath.resolve('dist/public/index.html'),
 };

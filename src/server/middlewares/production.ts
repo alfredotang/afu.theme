@@ -6,11 +6,15 @@ import fs from 'fs';
 const prodMiddleware = (app: Application) => {
     app.use('/', express.static(appRootPath.resolve('dist/public')));
     app.get('/health', (req: Request, res: Response) => {
-        const html = fs.readFileSync(appRootPath.resolve('dist/public/template.html'), 'UTF-8');
+        const html = fs.readFileSync(appRootPath.resolve('dist/public/index.html'), 'UTF-8');
         const $ = cheerio.load(html);
         const script = `
-        <div style="display: flex; align-items: center; justify-content: center; padding-top: 10%;">
-            <img src="/assets/images/nodejs_icon.svg" height="200" width="200" />
+        <div style="display: flex; 
+                    align-items: center; 
+                    justify-content: center; 
+                    padding-top: 10%; 
+                    color: green;">
+            HEALTH
         </div>
         `;
         $('body').prepend(script);
@@ -19,7 +23,7 @@ const prodMiddleware = (app: Application) => {
 
     // all other requests be handled by UI itself
     app.get('*', (req: Request, res: Response) => {
-        const html = fs.readFileSync(appRootPath.resolve('dist/public/template.html'), 'UTF-8');
+        const html = fs.readFileSync(appRootPath.resolve('dist/public/index.html'), 'UTF-8');
         const $ = cheerio.load(html);
         const script = `<script>var env = { EDITABLE: ${process.env.EDITABLE} };</script>`;
         $('body').prepend(script);

@@ -1,14 +1,17 @@
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import styled from '@emotion/styled';
+import { DefaultTheme } from 'emotion-theming';
 import { pixleCalc } from '@common/utils/styleUtils';
+import { colorAddAlpha } from '@src/client/common/utils/colorUtils';
 
-export const PageContainer = styled.section`
-    margin-top: ${props => props.theme.layout.header.width};
+export const PageContainer = styled.section<{ theme: DefaultTheme }>`
+    /* margin-top: ${props => props.theme.layout.header.width};
     ${props => props.theme.breakPoints.down('sm')} {
         margin-top: ${props => props.theme.layout.header.smWidth};
-    }
+    } */
 `;
 
-const Layout = styled.main`
+const Layout = styled.main<{ theme: DefaultTheme }>`
+    border-top: 1px solid ${props => colorAddAlpha(props.theme.body.color, 0.5)};
     margin-left: ${props =>
         pixleCalc(
             props.theme.layout.sidebar.width,

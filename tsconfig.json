@@ -17,6 +17,9 @@
       "@src/*": [
         "./src/*"
       ],
+      "@assets/*": [
+        "./src/client/assets/*"
+      ],
       "@components/*": [
         "./src/client/components/*"
       ],

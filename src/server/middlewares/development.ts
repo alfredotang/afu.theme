@@ -6,7 +6,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 
 const webpack = require('webpack');
 
-const webpackConfig = require('../../../config/webpack.dev.config.js');
+const webpackConfig = require('../../../scripts/webpack.dev.config.js');
 
 const compiler = webpack(webpackConfig);
 const localApiDomain = 'http://localhost:8008';

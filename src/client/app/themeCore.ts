@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
-import { DefaultTheme, IThemeOption } from 'styled-components';
+import { DefaultTheme, IThemeOption } from 'emotion-theming';
 
 import color from '@common/styles/color';
 import layout from '@common/styles/layout';

@@ -18,13 +18,13 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         publicPath: '/', // run 站台時的根目錄
     },
     plugins: [
-        new CopyWebpackPlugin([
-            {
-                from: path.join(__dirname, '../src', 'client', 'assets'),
-                to: path.join(__dirname, '..', 'public', 'assets'),
-                ignore: ['.*'],
-            },
-        ]),
+        // new CopyWebpackPlugin([
+        //     {
+        //         from: path.join(__dirname, '../src', 'client', 'assets'),
+        //         to: path.join(__dirname, '..', 'public', 'assets'),
+        //         ignore: ['.*'],
+        //     },
+        // ]),
         new HtmlWebpackPlugin({
             template: paths.templateDir,
             filename: 'index.html',
