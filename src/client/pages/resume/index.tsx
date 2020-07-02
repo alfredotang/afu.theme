@@ -9,9 +9,7 @@ const Resume: FC = () => {
             <Sidebar>
                 <div>Resume</div>
             </Sidebar>
-            <Layout>
-                <img src={alfredoMountain} alt="alfredo_picture" />
-            </Layout>
+            <Layout>{/* <img src={alfredoMountain} alt="alfredo_picture" /> */}</Layout>
         </Fragment>
     );
 };

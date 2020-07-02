@@ -1,7 +1,7 @@
 import { css } from '@emotion/core';
 import { colorLighten, colorAddAlpha } from '@common/utils/colorUtils';
 
-export type Variant = 'text' | 'outlined' | 'contained';
+export type Variant = 'text' | 'outlined' | 'contained' | 'icon';
 
 const ButtonVariant = (variant: Variant, main: string, second: string) => {
     switch (variant) {
@@ -34,7 +34,16 @@ const ButtonVariant = (variant: Variant, main: string, second: string) => {
                     background-color: ${colorAddAlpha(main, 0.2)};
                 }
             `;
-
+        case 'icon':
+            return css`
+                background-color: transparent;
+                color: ${main};
+                box-shadow: none;
+                border-radius: 20px;
+                &:hover {
+                    background-color: ${colorAddAlpha(main, 0.2)};
+                }
+            `;
         default:
             return css`
                 background-color: ${main};

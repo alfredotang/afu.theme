@@ -3,12 +3,15 @@ import _ from 'lodash';
 import styled from '@emotion/styled';
 import { DefaultTheme } from 'emotion-theming';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCog } from '@fortawesome/free-solid-svg-icons';
 
 import Button from '@components/button';
 import { RouterConfig, IRouterConfig } from '@src/client/app/router';
 
 const Container = styled.nav<{ theme: DefaultTheme }>`
     flex: 2 2;
+    text-align: end;
     padding-right: ${props => props.theme.spacing(1)};
 `;
 
@@ -39,6 +42,11 @@ const Navbar: FC = () => {
                     </LinkContainer>
                 );
             })}
+            <LinkContainer key="setting_icon">
+                <Button variant="icon">
+                    <FontAwesomeIcon icon={faCog} size="2x" />
+                </Button>
+            </LinkContainer>
         </Container>
     );
 };

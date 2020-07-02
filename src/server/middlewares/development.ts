@@ -9,10 +9,10 @@ const webpack = require('webpack');
 const webpackConfig = require('../../../scripts/webpack.dev.config.js');
 
 const compiler = webpack(webpackConfig);
-const localApiDomain = 'http://localhost:8008';
+const localApiDomain = 'https://sms.qa.91dev.tw';
 
 const devMiddleware = (app: Application) => {
-    app.use('/api', proxy({ target: `${localApiDomain}`, changeOrigin: true }));
+    app.use('/Api', proxy({ target: `${localApiDomain}`, changeOrigin: true }));
     app.use(
         webpackDevMiddleware(compiler, {
             publicPath: webpackConfig.output.publicPath,
